@@ -1,21 +1,30 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<mat-card [ngClass]="'wrapper'">
+  <i class="material-icons">
+    wb_sunny
+    </i>
+    <h3>ClearWeatherApplication</h3>
+</mat-card>
+<form (submit)="Submit(cityname, countrycode)">
+<mat-card [ngClass]="'area'">
+  <mat-form-field>
+  <input matInput class="form-control" required placeholder="Cityname" autofocus color="primary" #cityname>
+  </mat-form-field>
+  <mat-form-field>
+    <input class="form-control" matInput required placeholder="Countrycode" color="primary" #countrycode>
+    </mat-form-field>
+  <button mat-raised-button color="primary">
+    <i class="material-icons" [ngClass]="'question'">
+        query_builder
+    </i>Confirm</button>
+</mat-card>
+</form>
+<div *ngIf="weather">
+    <mat-card [ngClass]="'wrapper'"><p>Місто: {{weather.name}}</mat-card>
+    <mat-card [ngClass]="'wrapper'"><p>Широта: {{weather.coord.lat}}</mat-card>
+    <mat-card [ngClass]="'wrapper'"><p>Довгота: {{weather.coord.lon}}</mat-card>
+    <mat-card [ngClass]="'wrapper'"><p>Вологість: {{weather.main.humidity}}%</mat-card>
+    <mat-card [ngClass]="'wrapper'"><p>Тиск: {{weather.main.pressure}} паскаль</mat-card>
+    <mat-card [ngClass]="'wrapper'"><p>Температура: {{weather.main.temp}} °C</mat-card>
+    <mat-card [ngClass]="'wrapper'"><p>Опис: {{weather.weather[0].description }}</mat-card>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
 <router-outlet></router-outlet>
